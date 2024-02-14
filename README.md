@@ -1,12 +1,19 @@
-# Resumake Template 6
-> LaTeX code generated at [resumake.io](https://resumake.io)
+# Resume
+
+> LaTeX code was generated from [resumake.io](https://resumake.io) using Template 6.
 
 ## Usage
+
+### Building the PDF file through GitHub Actions
+
+The PDF file is automatically generated through GitHub Actions. The `build-latex` workflow is triggered when a push is made to the `main` branch. The PDF file is then uploaded as an artifact to each workflow run.
+
+### Building the PDF file manually
+
+Note: You will need to have `xelatex` installed on your machine.
+
 To generate a PDF from this LaTeX code, navigate to this folder in a terminal and run:
 
-    xelatex resume.tex
-
-## Requirements
-You will need to have `xelatex` installed on your machine.
-
-Alternatively, you can use a site like [ShareLaTeX](https://sharelatex.com) to build and edit your LaTeX instead.
+```sh
+xelatex resume.tex
+```
