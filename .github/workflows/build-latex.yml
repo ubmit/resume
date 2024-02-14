@@ -16,8 +16,8 @@ jobs:
       - name: Commit the PDF file and push to gh-pages branch
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: update resume.pdf"
           branch: gh-pages
+          file_pattern: "resume.pdf"
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
         with:
