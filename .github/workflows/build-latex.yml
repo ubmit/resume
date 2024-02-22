@@ -13,10 +13,10 @@ jobs:
         with:
           root_file: resume.tex
           latexmk_use_xelatex: true
-      - name: Move generated resume.pdf to public folder
+      - name: Copy generated resume.pdf to public folder
         run: |
           mkdir public
-          mv resume.pdf public
+          cp resume.pdf public
       - name: Deploy public directory to the remote gh-pages branch
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
