@@ -13,11 +13,15 @@ jobs:
         with:
           root_file: resume.tex
           latexmk_use_xelatex: true
-      - name: Commit the PDF file and push to gh-pages branch
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Move generated resume.pdf to public folder
+        run: |
+          mkdir public
+          mv resume.pdf public
+      - name: Deploy public directory to the remote gh-pages branch
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
-          branch: gh-pages
-          file_pattern: "resume.pdf"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
         with:
